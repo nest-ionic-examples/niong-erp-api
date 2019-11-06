@@ -1,7 +1,7 @@
 import { ObjectId } from 'bson';
-import { prop, Typegoose } from 'typegoose';
+import { prop } from '@typegoose/typegoose';
 
-export class BonusType extends Typegoose {
+export class BonusType {
   _id: string | ObjectId;
 
   @prop()

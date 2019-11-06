@@ -1,13 +1,14 @@
-import { ModelType } from 'typegoose';
+import { ReturnModelType } from '@typegoose/typegoose';
 import { Body, Delete, HttpException, HttpStatus, Param, Post, Put } from '@nestjs/common';
 import { ReadController } from './read.controller';
 import { User } from '../models/user';
 import { CurrentUser } from '../auth/current-user.decorator';
 import { plainToClass } from 'class-transformer';
 import { ClassType } from 'class-transformer/ClassTransformer';
+import { AnyParamConstructor } from "@typegoose/typegoose/lib/types";
 
 export abstract class CrudController<T> extends ReadController<T> {
-  protected constructor(protected model: ModelType<T>, protected type: ClassType<T>) {
+  protected constructor(protected model: ReturnModelType<AnyParamConstructor<T>>, protected type: ClassType<T>) {
     super(model);
   }
 

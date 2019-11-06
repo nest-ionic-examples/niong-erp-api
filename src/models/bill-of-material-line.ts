@@ -1,5 +1,5 @@
 import { ObjectId } from 'bson';
-import { prop } from 'typegoose';
+import { prop } from '@typegoose/typegoose';
 
 export class BillOfMaterialLine {
   @prop({ref: 'Product', default: null})

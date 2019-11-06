@@ -1,8 +1,8 @@
 import { ObjectId } from 'bson';
-import { arrayProp, prop, Typegoose } from 'typegoose';
+import { prop } from '@typegoose/typegoose';
 import { BillOfMaterialLine } from './bill-of-material-line';
 
-export class BillOfMaterial extends Typegoose {
+export class BillOfMaterial {
   _id: string | ObjectId;
 
   @prop({unique: true, default: 'BM'})

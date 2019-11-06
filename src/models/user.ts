@@ -1,7 +1,6 @@
-import { Typegoose } from 'typegoose';
 import { ObjectId } from 'bson';
 
-export class User extends Typegoose {
+export class User {
   _id: string | ObjectId;
 
   username;

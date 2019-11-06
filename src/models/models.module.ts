@@ -16,4 +16,5 @@ const providers = TypegooseModule.forFeature([
   providers,
   exports: providers,
 })
-export class ModelsModule {}
+export class ModelsModule {
+}

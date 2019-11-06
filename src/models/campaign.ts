@@ -1,7 +1,7 @@
 import { ObjectId } from 'bson';
-import { prop, Typegoose } from 'typegoose';
+import { prop } from '@typegoose/typegoose';
 
-export class Campaign extends Typegoose {
+export class Campaign {
   _id: string | ObjectId;
 
   @prop({default: ''})

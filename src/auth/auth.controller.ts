@@ -1,14 +1,14 @@
 import { Body, Controller, Get, Post, UnauthorizedException } from '@nestjs/common';
 import { InjectModel } from 'nestjs-typegoose';
 import { User } from '../models/user';
-import { ModelType } from 'typegoose';
+import { ReturnModelType } from '@typegoose/typegoose';
 import { sign } from 'jsonwebtoken';
 import { compare, hash } from 'bcrypt';
 import { CurrentUser } from './current-user.decorator';
 
 @Controller('')
 export class AuthController {
-  constructor(@InjectModel(User) private userModel: ModelType<User>) {}
+  constructor(@InjectModel(User) private userModel: ReturnModelType<typeof User>) {}
 
   @Post('login')
   async login(@Body() credentials) {

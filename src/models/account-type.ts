@@ -1,7 +1,7 @@
 import { ObjectId } from 'bson';
-import { prop, Typegoose } from 'typegoose';
+import { prop } from '@typegoose/typegoose';
 
-export class AccountType extends Typegoose {
+export class AccountType {
   _id: string | ObjectId;
 
   @prop({default: ''})

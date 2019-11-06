@@ -1,8 +1,8 @@
-import { prop, Typegoose } from 'typegoose';
+import { prop } from '@typegoose/typegoose';
 import { ObjectId } from 'bson';
 import { ActionBy } from './action-by';
 
-export class AccountsCategories extends Typegoose {
+export class AccountsCategories {
   _id: string | ObjectId;
 
   @prop({default: 'All'})
