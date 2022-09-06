@@ -1,12 +1,12 @@
 import { ObjectId } from 'bson';
-import { prop } from '@typegoose/typegoose';
+import { Prop } from '@nestjs/mongoose';
 
 export class Brand {
   _id: string | ObjectId;
 
-  @prop({default: 'default'})
+  @Prop({default: 'default'})
   name: string;
 
-  @prop({default: Date.now})
+  @Prop({default: Date.now})
   creationDate: Date;
 }

@@ -1,7 +1,5 @@
-import { ReturnModelType } from '@typegoose/typegoose';
 import { Get, Query } from '@nestjs/common';
-import { ParseOptionalIntPipe } from '../pipes/parse-optional-int.pipe';
-import { AnyParamConstructor } from "@typegoose/typegoose/lib/types";
+import { ParseOptionalIntPipe } from '../../pipes/parse-optional-int.pipe';
 
 export interface Page<T> {
   number: number;
@@ -12,7 +10,7 @@ export interface Page<T> {
 
 export class FindController<T> {
 
-  protected constructor(protected model: ReturnModelType<AnyParamConstructor<T>>) {}
+  protected constructor(protected model/*: ReturnModelType<AnyParamConstructor<T>>*/) {}
 
   @Get()
   async find(@Query('page', ParseOptionalIntPipe) number: number = 1,

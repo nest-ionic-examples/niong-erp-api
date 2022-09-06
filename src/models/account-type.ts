@@ -1,12 +1,14 @@
 import { ObjectId } from 'bson';
-import { prop } from '@typegoose/typegoose';
+import { Prop, SchemaFactory } from '@nestjs/mongoose';
 
 export class AccountType {
   _id: string | ObjectId;
 
-  @prop({default: ''})
+  @Prop({default: ''})
   name: string;
 
-  @prop()
+  @Prop()
   sequence: number;
 }
+
+export const AccountTypeSchema = SchemaFactory.createForClass(AccountType);

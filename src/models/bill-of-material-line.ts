@@ -1,13 +1,13 @@
 import { ObjectId } from 'bson';
-import { prop } from '@typegoose/typegoose';
+import { Prop } from '@nestjs/mongoose';
 
 export class BillOfMaterialLine {
-  @prop({ref: 'Product', default: null})
+  @Prop({ref: 'Product', default: null})
   component: ObjectId;
 
-  @prop({default: 0})
+  @Prop({default: 0})
   quantity: number;
 
-  @prop({default: ''})
+  @Prop({default: ''})
   info: string;
 }

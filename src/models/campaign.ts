@@ -1,12 +1,12 @@
 import { ObjectId } from 'bson';
-import { prop } from '@typegoose/typegoose';
+import { Prop } from '@nestjs/mongoose';
 
 export class Campaign {
   _id: string | ObjectId;
 
-  @prop({default: ''})
+  @Prop({default: ''})
   name: string;
 
-  @prop({default: 0})
+  @Prop({default: 0})
   sequence: number;
 }

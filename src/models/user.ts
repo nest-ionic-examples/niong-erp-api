@@ -1,4 +1,5 @@
 import { ObjectId } from 'bson';
+import { SchemaFactory } from '@nestjs/mongoose';
 
 export class User {
   _id: string | ObjectId;
@@ -11,3 +12,5 @@ export class User {
 
   role;
 }
+
+export const UserModel = SchemaFactory.createForClass(User);

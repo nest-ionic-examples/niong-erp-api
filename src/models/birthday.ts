@@ -1,13 +1,13 @@
 import { ObjectId } from 'bson';
-import { prop } from '@typegoose/typegoose';
+import { Prop } from '@nestjs/mongoose';
 
 export class Birthday {
   _id: string | ObjectId;
 
-  @prop()
+  @Prop()
   date: Date;
 
-  @prop()
+  @Prop()
   currentEmployees: {
     weekly: [],
     nextweek: [],

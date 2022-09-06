@@ -12,11 +12,11 @@ export class AuthAdapter extends IoAdapter {
     const server = super.createIOServer(port, options);
     server.use((socket: CustomSocket, next) => { // <2>
       if (socket.handshake.query && socket.handshake.query.token) {
-        verify(socket.handshake.query.token, process.env.JWT_SECRET_PASSWORD, (err, decoded) => { // <3>
+        verify('test'/*socket.handshake.query.token*/, process.env.JWT_SECRET_PASSWORD, (err, decoded) => { // <3>
           if (err) {
             next(new Error('Authentication error')); // <4>
           } else {
-            socket.user = decoded; // <5>
+            // socket.user = decoded; // <5>
             next();
           }
         });

@@ -1,15 +1,15 @@
 import { Module } from '@nestjs/common';
-import { TypegooseModule } from 'nestjs-typegoose';
-import { AccountsCategories } from './accounts-categories';
-import { AccountType } from './account-type';
-import { BillOfMaterial } from './bill-of-material';
-import { BonusType } from './bonus-type';
+import { MongooseModule } from '@nestjs/mongoose';
+import { AccountsCategories, AccountsCategoriesSchema } from './accounts-categories';
+import { AccountType, AccountTypeSchema } from './account-type';
+import { BillOfMaterial, BillOfMaterialSchema } from './bill-of-material';
+import { BonusType, BonusTypeSchema } from './bonus-type';
 
-const providers = TypegooseModule.forFeature([
-  AccountsCategories,
-  AccountType,
-  BillOfMaterial,
-  BonusType,
+const providers = MongooseModule.forFeature([
+  {name: AccountsCategories.name, schema: AccountsCategoriesSchema},
+  {name: AccountType.name, schema: AccountTypeSchema},
+  {name: BillOfMaterial.name, schema: BillOfMaterialSchema},
+  {name: BonusType.name, schema: BonusTypeSchema},
 ]).providers;
 
 @Module({

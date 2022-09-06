@@ -1,44 +1,46 @@
-import { prop } from '@typegoose/typegoose';
 import { ObjectId } from 'bson';
 import { ActionBy } from './action-by';
+import { Prop, SchemaFactory } from '@nestjs/mongoose';
 
 export class AccountsCategories {
-  _id: string | ObjectId;
+  _id: ObjectId;
 
-  @prop({default: 'All'})
+  @Prop({default: 'All'})
   name: string;
 
-  @prop({default: 'All'})
+  @Prop({default: 'All'})
   fullName: string;
 
-  @prop({ref: 'AccountsCategory', default: null})
+  @Prop({ref: 'AccountsCategory', default: null})
   parent: ObjectId;
 
-  @prop({default: null})
+  @Prop({default: null})
   child: ObjectId[];
 
-  @prop({ref: 'Users', default: null})
+  @Prop({ref: 'Users', default: null})
   users: ObjectId[];
 
-  @prop()
+  @Prop()
   createdBy: ActionBy;
 
-  @prop()
+  @Prop()
   editedBy: ActionBy;
 
-  @prop({default: 0})
+  @Prop({default: 0})
   nestingLevel: number;
 
-  @prop({default: 0})
+  @Prop({default: 0})
   sequence: number;
 
-  @prop({default: false})
+  @Prop({default: false})
   main: boolean;
 
-  @prop({default: true})
+  @Prop({default: true})
   removable: boolean;
 
-  @prop({default: 0})
+  @Prop({default: 0})
   productsCount: number;
 
 }
+
+export const AccountsCategoriesSchema = SchemaFactory.createForClass(AccountsCategories);

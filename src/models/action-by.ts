@@ -1,10 +1,10 @@
 import { ObjectId } from 'bson';
-import { prop } from '@typegoose/typegoose';
+import { Prop } from '@nestjs/mongoose';
 
 export class ActionBy {
-  @prop({ref: 'Users', default: null})
+  @Prop({ref: 'Users', default: null})
   user: ObjectId;
 
-  @prop({default: Date.now})
+  @Prop({default: Date.now})
   date: Date;
 }

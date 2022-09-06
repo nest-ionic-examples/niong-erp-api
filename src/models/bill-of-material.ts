@@ -1,32 +1,34 @@
 import { ObjectId } from 'bson';
-import { prop } from '@typegoose/typegoose';
 import { BillOfMaterialLine } from './bill-of-material-line';
+import { Prop, SchemaFactory } from '@nestjs/mongoose';
 
 export class BillOfMaterial {
   _id: string | ObjectId;
 
-  @prop({unique: true, default: 'BM'})
+  @Prop({unique: true, default: 'BM'})
   name: string;
 
-  @prop({ref: 'Product', default: null})
+  @Prop({ref: 'Product', default: null})
   product: ObjectId;
 
-  @prop({ref: 'routing', default: null})
+  @Prop({ref: 'routing', default: null})
   routing: ObjectId;
 
-  @prop({default: false})
+  @Prop({default: false})
   isComponent: boolean;
 
-  @prop({default: 0})
+  @Prop({default: 0})
   quantity: number;
 
-  @prop({default: ''})
+  @Prop({default: ''})
   description: string;
 
-  @prop()
+  @Prop()
   components: BillOfMaterialLine[];
 
-  @prop({default: Date.now})
+  @Prop({default: Date.now})
   creationDate: Date;
 
 }
+
+export const BillOfMaterialSchema = SchemaFactory.createForClass(BillOfMaterial);
